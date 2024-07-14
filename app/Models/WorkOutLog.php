@@ -20,7 +20,7 @@ class WorkOutLog extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
-    public function exercises()   
+    public function exercise()   
     {
         return $this->belongsTo(Exercise::class);
     }
