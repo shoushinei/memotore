@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.muscle-area-list,
+.exercise-list {
+    margin-bottom: 20px;
+}
+
+.muscle-area-button,
+.exercise-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.muscle-area-button:hover,
+.exercise-button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #007bff;
+}
