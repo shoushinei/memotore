@@ -18,6 +18,6 @@
         <div>
             <strong>記録日:</strong> {{ $workOutLog->log_date }}
         </div>
-        <a href="{{ route('workoutlogs.index') }}" class="btn btn-primary">Back to List</a>
+        <a href="{{ route('workoutlogs.index') }}" class="btn btn-primary">戻る</a>
     </div>
 @endsection

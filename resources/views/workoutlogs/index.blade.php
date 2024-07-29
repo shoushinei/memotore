@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1>Work Out Logs</h1>
-        <a href="{{ route('workoutlogs.create') }}" class="btn btn-primary">Create New Log</a>
+        <a href="{{ route('workoutlogs.select_muscle') }}" class="btn btn-primary">トレーニング追加</a>
         <table class="table">
             <thead>
                 <tr>
@@ -24,12 +24,12 @@
                         <td>{{ $log->reps }}</td>
                         <td>{{ $log->log_date }}</td>
                         <td>
-                            <a href="{{ route('workoutlogs.show', $log->id) }}" class="btn btn-info">View</a>
-                            <a href="{{ route('workoutlogs.edit', $log->id) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ route('workoutlogs.show', $log->id) }}" class="btn btn-info">詳細</a>
+                            <a href="{{ route('workoutlogs.edit', $log->id) }}" class="btn btn-warning">編集</a>
                             <form action="{{ route('workoutlogs.delete', $log->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">削除</button>
                             </form>
                         </td>
                     </tr>
