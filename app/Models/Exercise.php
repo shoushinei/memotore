@@ -12,6 +12,8 @@ class Exercise extends Model
 {
     use HasFactory;
     
+    protected $fillable = ['name', 'muscle_area_id'];
+    
     public function users()   
     {
         return $this->belongsToMany(User::class);

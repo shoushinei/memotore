@@ -24,10 +24,23 @@ class WorkOutLogController extends Controller
         return view('workoutlogs.show')->with(['workOutLog' => $workOutLog]);
     }
 
-    public function create()
+    public function create(Request $request)
+    {
+        $exercise = Exercise::findOrFail($request->exercise);
+        return view('workoutlogs.create', compact('exercise'));
+    }
+    
+    public function selectMuscle()
     {
         $muscleAreas = MuscleArea::all();
-        return view('workoutlogs.create')->with(['muscleAreas' => $muscleAreas]);
+        return view('workoutlogs.select_muscle', compact('muscleAreas'));
+    }
+
+    public function selectExercise($muscleAreaId)
+    {
+        $muscleArea = MuscleArea::findOrFail($muscleAreaId);
+        $exercises = Exercise::where('muscle_area_id', $muscleAreaId)->get();
+        return view('workoutlogs.select_exercise', compact('muscleArea', 'exercises'));
     }
 
     public function store(Request $request)
