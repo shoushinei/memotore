@@ -6,6 +6,7 @@ use App\Http\Controllers\MuscleController;
 use App\Http\Controllers\WorkOutLogController;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\MuscleAreaController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/work_out_logs/{workOutLog}', [WorkOutLogController::class, 'update'])->name('workoutlogs.update');
     Route::delete('/work_out_logs/{workOutLog}', [WorkOutLogController::class, 'destroy'])->name('workoutlogs.delete');
     Route::get('/work_out_logs/{workOutLog}/edit', [WorkOutLogController::class, 'edit'])->name('workoutlogs.edit');
+    
+    // タグ関連のルート
+    Route::get('/tags', [TagController::class, 'index'])->name('tags.index');
+    Route::post('/tags', [TagController::class, 'store'])->name('tags.store');
+    Route::delete('/tags/{tag}', [TagController::class, 'destroy'])->name('tags.destroy');
+    Route::post('/work_out_logs/{workOutLog}/tags', [TagController::class, 'addTagToWorkOutLog'])->name('workoutlogs.addTag');
+    Route::delete('/work_out_logs/{workOutLog}/tags', [TagController::class, 'removeTagFromWorkOutLog'])->name('workoutlogs.removeTag');
     
     // プロフィール編集関連のルート
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
