@@ -17,7 +17,7 @@ return new class extends Migration
         $table->foreignId('user_id')->constrained()->onDelete('cascade');
         $table->double('weight');
         $table->integer('reps');
-        $table->timestamp('log_date');
+        $table->dateTime('log_date');
         $table->timestamps();
         $table->softDeletes();
         });

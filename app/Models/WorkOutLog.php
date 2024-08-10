@@ -12,6 +12,14 @@ class WorkOutLog extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'exercise_id',
+        'weight',
+        'reps',
+        'log_date',
+        'user_id'
+    ];
+    
     public function user()   
     {
         return $this->belongsTo(User::class);
