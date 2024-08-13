@@ -74,3 +74,6 @@ Route::post('/muscle_areas', [MuscleAreaController::class, 'store'])->name('musc
 
 // 認証用のルート設定
 require __DIR__.'/auth.php';
+
+Route::view('/calendar', 'calendar/calendar');
+Route::post('/calendar/work_out_logs', [WorkOutLogController::class, 'get_work_out_logs'])->name('event.get');

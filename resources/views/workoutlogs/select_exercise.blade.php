@@ -1,7 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
+<x-app-layout>
+<div class="containers">
     <h2>種目を選択 ({{ $muscleArea->name }})</h2>
     <ul>
         @foreach ($exercises as $exercise)
@@ -12,5 +10,5 @@
     </ul>
     <a href="{{ route('exercises.create', ['muscle_area_id' => $muscleArea->id]) }}" class="btn btn-secondary">種目編集</a>
 </div>
-@endsection
+</x-app-layout>
 

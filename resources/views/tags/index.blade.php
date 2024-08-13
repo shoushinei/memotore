@@ -1,7 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
+<x-app-layout>
+<div class="containers">
     <h2>タグ管理</h2>
     @if (session('success'))
         <div class="alert alert-success">
@@ -17,20 +15,18 @@
         <button type="submit">タグを追加</button>
     </form>
     <h3>現在のタグ</h3>
-    <ul>
+    <div class="tags-grid">
         @foreach($tags as $tag)
-            <li>
-                <!-- タグボタン -->
+            <div class="tag-item">
                 <button class="tag-button" data-tag="{{ $tag->comment }}">{{ $tag->comment }}</button>
-                <!-- タグ削除フォーム -->
                 <form action="{{ route('tags.destroy', $tag) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit">削除</button>
                 </form>
-            </li>
+            </div>
         @endforeach
-    </ul>
+    </div>
 
     <!-- タグ選択のJavaScript -->
     <script>
@@ -66,5 +62,5 @@
     });
     </script>
 </div>
-@endsection
+</x-app-layout>
 

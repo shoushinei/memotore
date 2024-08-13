@@ -1,7 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
+<x-app-layout>
+<div class="containers">
     <h2>{{ $workOutLog->exercise->name }}の編集</h2>
     <form id="workOutForm" action="{{ route('workoutlogs.update', $workOutLog) }}" method="POST">
         @csrf
@@ -22,21 +20,20 @@
                         <input type="number" name="reps[{{ $log->id }}]" id="reps_{{ $log->id }}" value="{{ $log->reps }}" required>
                     </div>
                     <div>
-                            <ul>
-                                @foreach ($log->tags as $tag)
-                                    <li>{{ $tag->comment }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
+                        @foreach ($log->tags as $tag)
+                            <span class="tag">{{ $tag->comment }}</span>
+                        @endforeach
+                    </div>
                 </div>
             @endforeach
         </div>
 
-        <button type="button" id="addSetButton">セットを追加</button>
-        <button type="button" id="removeSetButton">セットを削除</button>
+        <button type="button" id="addSetButton" class="btn-primary">セットを追加</button>
+        <button type="button" id="removeSetButton" class="btn-danger">セットを削除</button>
         
-        <button type="submit">更新する</button>
+        <button type="submit" class="btn-warning">更新する</button>
     </form>
+    <a href="{{ route('workoutlogs.index') }}" class="btn-back">戻る</a>
 </div>
 
 <script>
@@ -82,8 +79,7 @@
             }
         });
 
-        // 初期状態のボタン表示を設定
         updateRemoveButtonVisibility();
     });
 </script>
-@endsection
+</x-app-layout>
