@@ -4,6 +4,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build"
+        "heroku-postbuild": "npm run build"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
@@ -18,9 +19,4 @@
     "dependencies": {
         "fullcalendar": "^6.1.15"
     }
-     "scripts": {
-        "dev": "vite",
-        "build": "vite build", 
-        "heroku-postbuild": "npm run build"
-    },
 }
