@@ -1,7 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
+<x-app-layout>
+<div class="containers">
     <h2>部位を編集</h2>
 
     @if (session('success'))
@@ -45,4 +43,4 @@
     </ul>
     <a href="{{ route('workoutlogs.select_muscle') }}" class="btn btn-secondary">戻る</a> 
 </div>
-@endsection
+</x-app-layout>

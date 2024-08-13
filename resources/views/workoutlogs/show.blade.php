@@ -1,7 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-    <div class="container">
+<x-app-layout>
+    <div class="containers">
         <h1>Work Out Log Details</h1>
         <div>
             <strong>部位:</strong> {{ $workOutLog->exercise->muscle_area->name }}
@@ -20,16 +18,15 @@
                         <strong>重さ:</strong> {{ $log->weight }} kg,
                         <strong>回数:</strong> {{ $log->reps }} 回
                         <div>
-                            <ul>
-                                @foreach ($log->tags as $tag)
-                                    <li>{{ $tag->comment }}</li>
-                                @endforeach
-                            </ul>
+                            @foreach ($log->tags as $tag)
+                                <span class="tag">{{ $tag->comment }}</span>
+                            @endforeach
                         </div>
                     </li>
                 @endforeach
             </ul>
         </div>
-        <a href="{{ route('workoutlogs.index') }}" class="btn btn-primary">戻る</a>
+        <a href="{{ route('workoutlogs.index') }}" class="btn-back">戻る</a>
     </div>
-@endsection
+</x-app-layout>
+

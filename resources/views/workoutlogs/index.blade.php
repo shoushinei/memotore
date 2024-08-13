@@ -1,7 +1,7 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
+<x-app-layout>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+    <div class='calendar'id='calendar'></div>
+<div class="containers">
     <h1>Work Out Logs</h1>
     <a href="{{ route('workoutlogs.select_muscle') }}" class="btn btn-primary">トレーニング追加</a>
     @if (session('success'))
@@ -53,4 +53,4 @@
         </tbody>
     </table>
 </div>
-@endsection
+</x-app-layout>

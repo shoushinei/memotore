@@ -187,4 +187,18 @@ class WorkOutLogController extends Controller
         return redirect()->route('workoutlogs.index')->with('success', '記録が削除されました。');
     }
     
+    public function get_work_out_logs(Request $request)
+    {
+        
+    
+        // 登録処理
+        return WorkOutLog::query()
+            ->select(
+                // FullCalendarの形式に合わせる
+                'log_date as start',
+                'id'
+            )
+            ->get();
+    }
+    
     }

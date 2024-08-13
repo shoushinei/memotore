@@ -1,7 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
+<x-app-layout>
+<div class="containers">
     <h2>{{ $exercise->name }}の記録</h2>
     <form action="{{ route('workoutlogs.store') }}" method="POST">
         @csrf
@@ -10,19 +8,16 @@
         <div id="sets">
             <div class="set" id="set-1">
                 <h3>セット 1</h3>
-                <div>
-                    <label for="weight_1">重さ</label>
-                    <input type="number" name="weights[]" id="weight_1" required>
-                </div>
-                <div>
-                    <label for="reps_1">回数</label>
-                    <input type="number" name="reps[]" id="reps_1" required>
+                <div class="form-row">
+                    <label for="weight_1">重さ：</label>
+                    <input type="number" name="weights[]" id="weight_1" required> kg
+                    <label for="reps_1" style="margin-left: 20px;">回数：</label>
+                    <input type="number" name="reps[]" id="reps_1" required> 回
                 </div>
                 <div class="tags">
                     <!-- タグが追加された場合にここに表示されます -->
                 </div>
                 <a href="#" onclick="window.open('{{ route('tags.index', ['set' => 1]) }}', '_blank'); return false;" class="btn btn-secondary">+</a>
-                {{--<a href="{{ route('tags.index', ['set' => 1]) }}" class="btn btn-secondary">＋</a> <!-- タグ追加ボタン -->--}}
                 <button type="button" class="removeSetButton">セットを削除</button>
             </div>
         </div>
@@ -112,4 +107,4 @@
         updateRemoveButtonVisibility();
     });
 </script>
-@endsection
+</x-app-layout>
