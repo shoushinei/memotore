@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\ChatLog;
+use App\Models\Exercise;
+use App\Models\MuscleArea;
+use App\Models\Tag;
+use App\Models\WorkOutLog;
 
 class User extends Authenticatable
 {
@@ -42,4 +47,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+        public function chat_logs()   
+        {
+            return $this->hasMany(ChatLog::class);
+        }
+        public function exercises()   
+        {
+            return $this->belongsToMany(Exercise::class);
+        }
+        public function muscle_areas()   
+        {
+            return $this->belongsToMany(MuscleArea::class);
+        }
+        public function tags()   
+        {
+            return $this->hasMany(Tag::class);
+        }
+        public function work_out_logs()   
+        {
+            return $this->hasMany(WorkOutLog::class);
+        }
 }
