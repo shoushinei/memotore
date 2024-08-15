@@ -6,6 +6,10 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use App\Listeners\CreateDefaultTags;
+use App\Listeners\CreateDefaultMuscleAreas;
+use App\Listeners\CreateDefaultExercises;
+use App\Listeners\CreateDefaultMuscleAreaUsers;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -17,6 +21,10 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+            CreateDefaultTags::class,
+            CreateDefaultMuscleAreas::class,
+            CreateDefaultExercises::class,
+            CreateDefaultMuscleAreaUsers::class,
         ],
     ];
 

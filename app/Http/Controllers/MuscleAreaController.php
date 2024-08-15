@@ -13,19 +13,27 @@ class MuscleAreaController extends Controller
 {
     public function create()
     {
-        $muscleAreas = MuscleArea::all();
+        $user = auth()->user();
+        $muscleAreas = $user->muscle_areas()->get();
         return view('muscle_areas.create', compact('muscleAreas'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, MuscleArea $muscleArea)
     {
+        $userId = auth()->user()->id;
+        
         $request->validate([
             'name' => 'required|string|max:255',
         ]);
+        
+        $muscleArea->name = $request->name;
+        $muscleArea->save();
 
-        MuscleArea::create([
-            'name' => $request->name,
-        ]);
+        // MuscleArea::create([
+        //     'name' => $request->name,
+        // ]);
+        
+        $muscleArea->users()->attach($userId);
 
         return redirect()->route('muscle_areas.create');
     }

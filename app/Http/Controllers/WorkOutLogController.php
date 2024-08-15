@@ -53,7 +53,8 @@ class WorkOutLogController extends Controller
     
     public function selectMuscle()
     {
-        $muscleAreas = MuscleArea::all();
+        $user = auth()->user();
+        $muscleAreas = $user->muscle_areas()->get();
         return view('workoutlogs.select_muscle', compact('muscleAreas'));
     }
 

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
                 ExerciseSeeder::class,
                 UserSeeder::class,
                 TagSeeder::class,
+                MuscleAreaUserSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();                $this->call(PostSeeder::class);
         // \App\Models\User::factory()->create([
